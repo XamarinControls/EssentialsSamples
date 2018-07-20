@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using EssentialsSamples.ViewModels;
 using Xamarin.Forms;
 
 namespace EssentialsSamples.Views
@@ -10,6 +10,7 @@ namespace EssentialsSamples.Views
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainViewModel();
         }
     }
 }

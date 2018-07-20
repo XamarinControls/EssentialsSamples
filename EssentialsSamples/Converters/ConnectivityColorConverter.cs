@@ -1,19 +1,29 @@
 ﻿using System;
-
+using System.Globalization;
 using Xamarin.Forms;
 
 namespace EssentialsSamples.Converters
 {
-    public class ConnectivityColorConverter : ContentPage
+    public class ConnectivityColorConverter : IValueConverter
     {
-        public ConnectivityColorConverter()
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Content = new StackLayout
+            int connectivity = (int)value;
+
+            switch (connectivity)
             {
-                Children = {
-                    new Label { Text = "Hello ContentPage" }
-                }
-            };
+                case 1:
+                    return Color.LightGreen;
+                case 2:
+                    return Color.Red;
+                default:
+                    return Color.Gray;
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }
